@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tính lãi vay ngân hàng</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<script>
+if(localStorage.getItem("loggedIn") !== "true"){
+window.location.href="login.html"
+}
+</script>
+
+<body>
+
+<div class="container">
+
+<h2>Tính lãi vay ngân hàng</h2>
+
+<label>Số tiền vay</label>
+<input type="number" id="money">
+
+<label>Lãi suất (% / tháng)</label>
+<input type="number" id="rate">
+
+<label>Số tháng vay</label>
+<input type="number" id="month">
+
+<label>Phương thức</label>
+
+<select id="method">
+<option value="equal">Dư nợ đều</option>
+<option value="decrease">Dư nợ giảm dần</option>
+</select>
+
+<button onclick="calculate()">Tính</button>
+
+<div class="result" id="resultBox" style="display:none">
+<table id="schedule" style="display:none"></table>
+<h3>Kết quả</h3>
+
+<p>Tổng tiền gốc: <span id="principal"></span></p>
+<p>Tổng lãi phải trả: <span id="interest"></span></p>
+<p>Tổng tiền cần trả: <span id="total"></span></p>
+
+</div>
+
+<table id="schedule" style="display:none">
+
+<tr>
+<th>Tháng</th>
+<th>Dư nợ</th>
+<th>Gốc</th>
+<th>Lãi</th>
+<th>Tổng trả</th>
+</tr>
+
+</table>
+<button onclick="logout()">Đăng xuất</button>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
